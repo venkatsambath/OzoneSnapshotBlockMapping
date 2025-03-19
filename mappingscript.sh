@@ -6,6 +6,7 @@ TEMP_DIR="/tmp/ozone_snapshots_analysis"
 
 # Create temp directories
 rm -rvf ${TEMP_DIR}/* # Clean previous runs
+mkdir -p ${TEMP_DIR}
 
 # Function to process a single snapshot entry
 process_single_snapshot() {
@@ -73,8 +74,8 @@ process_snapshots() {
 
   # Aggregate results
   echo "Aggregating results..."
-  cat "${TEMP_DIR}/*file_table.txt > "${TEMP_DIR}/file_table_final.txt"
-  cat "${TEMP_DIR}/*key_table.txt > "${TEMP_DIR}/key_table_final.txt"
+  cat ${TEMP_DIR}/*file_table.txt > "${TEMP_DIR}/file_table_final.txt"
+  cat ${TEMP_DIR}/*key_table.txt > "${TEMP_DIR}/key_table_final.txt"
 
   # Write final results
   echo "Details saved in ${TEMP_DIR}/file_table_final.txt ${TEMP_DIR}/key_table_final.txt"
