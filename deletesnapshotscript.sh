@@ -1,0 +1,1 @@
+ ozone sh snapshot list freon/freonbucket | jq -r '.[].name' | xargs -n 1 -I{} ozone sh snapshot delete freon/freonbucket {}
